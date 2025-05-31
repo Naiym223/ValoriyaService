@@ -1,35 +1,13 @@
 [build]
-  publish = ".next"
   command = "bun run build"
+  publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[context.production.environment]
-  NEXT_PUBLIC_FIREBASE_API_KEY = "AIzaSyCjPifC8njhnEGiUrYKo5HiuiQd4dTny0k"
-  NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = "valoriyaservice.firebaseapp.com"
-  NEXT_PUBLIC_FIREBASE_PROJECT_ID = "valoriyaservice"
-  NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET = "valoriyaservice.appspot.com"
-  NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID = "973884239952"
-  NEXT_PUBLIC_FIREBASE_APP_ID = "1:973884239952:web:valoriyaservice"
-EOF  
-cd /home/project && cd /home/project/ValoriyaService && cat > netlify.toml << 'EOF'
-[build]
-  publish = ".next"
-  command = "bun run build"
-
-[build.environment]
-  NODE_VERSION = "18"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Netlify handles Next.js apps automatically
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [context.production.environment]
   NEXT_PUBLIC_FIREBASE_API_KEY = "AIzaSyCjPifC8njhnEGiUrYKo5HiuiQd4dTny0k"

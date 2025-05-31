@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, query, where, orderBy, limit as firestoreLimit, getDocs } from 'firebase/firestore';
 
 export async function POST(request: Request) {
   try {
@@ -109,32 +109,26 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Game key required' }, { status: 400 });
     }
 
-    // In a real implementation, you'd query Firestore for ranking requests
-    // For now, return mock data
-    const mockRequests = [
-      {
-        id: '1',
-        targetUserId: 123456789,
-        targetUsername: 'TestUser1',
-        toRank: 50,
-        status: 'success',
-        createdAt: new Date(Date.now() - 3600000), // 1 hour ago
-        completedAt: new Date(Date.now() - 3590000)
-      },
-      {
-        id: '2',
-        targetUserId: 987654321,
-        targetUsername: 'TestUser2',
-        toRank: 100,
-        status: 'success',
-        createdAt: new Date(Date.now() - 7200000), // 2 hours ago
-        completedAt: new Date(Date.now() - 7190000)
-      }
-    ];
+    // Query Firestore for ranking requests with the given game key
+    const rankingRequestsRef = collection(db, 'rankingRequests');
+    const q = query(
+      rankingRequestsRef,
+      where('gameKey', '==', gameKey),
+      orderBy('createdAt', 'desc'),
+      firestoreLimit(limit)
+    );
+
+    const querySnapshot = await getDocs(q);
+    const requests = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+      createdAt: doc.data().createdAt?.toDate(),
+      completedAt: doc.data().completedAt?.toDate()
+    }));
 
     return NextResponse.json({ 
       success: true, 
-      data: mockRequests.slice(0, limit) 
+      data: requests
     });
 
   } catch (error) {

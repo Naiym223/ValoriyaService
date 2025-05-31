@@ -151,7 +151,7 @@ export default function HomePage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center mb-4 italic">"{testimonial.quote}"</p>
+                    <p className="text-center mb-4 italic">&quot;{testimonial.quote}&quot;</p>
                     <div className="text-center">
                       <p className="font-semibold">{testimonial.author}</p>
                       <p className="text-sm opacity-80">{testimonial.role}</p>
