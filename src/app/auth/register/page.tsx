@@ -98,12 +98,21 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-valoriya-gradient flex items-center justify-center p-4">
+    <div className="min-h-screen bg-valoriya-gradient flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated particles background */}
+      <div className="absolute inset-0 particles-bg animate-particles opacity-30"></div>
+      
+      {/* Floating geometric shapes */}
+      <div className="absolute top-20 right-10 w-16 h-16 bg-white/10 rounded-full animate-float"></div>
+      <div className="absolute top-1/4 left-20 w-12 h-12 bg-white/20 rounded-lg rotate-45 animate-float" style={{animationDelay: '2s'}}></div>
+      <div className="absolute bottom-20 right-1/4 w-8 h-8 bg-white/15 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
+      <div className="absolute bottom-1/2 left-1/4 w-20 h-20 bg-white/10 rounded-lg animate-float" style={{animationDelay: '1s'}}></div>
+
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full max-w-md relative z-10"
       >
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center text-white hover:text-blue-100 transition-colors mb-4">

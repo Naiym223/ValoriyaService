@@ -119,8 +119,11 @@ const config: Config = {
         "pulse-blue": "pulse-blue 2s ease-in-out infinite",
       },
       backgroundImage: {
-        'valoriya-gradient': 'linear-gradient(135deg, #6e3ce6 0%, #1e61df 50%, #30bdf5 100%)',
-        'valoriya-gradient-light': 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%)',
+        'valoriya-gradient': 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%)',
+        'valoriya-gradient-dark': 'linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%)',
+        'valoriya-gradient-light': 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%)',
+        'valoriya-gradient-subtle': 'linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(14, 165, 233, 0.1) 50%, rgba(2, 132, 199, 0.1) 100%)',
+        'particles': 'radial-gradient(circle, rgba(56, 189, 248, 0.3) 1px, transparent 1px)',
       }
     },
   },
