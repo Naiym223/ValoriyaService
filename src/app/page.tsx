@@ -45,18 +45,18 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="px-6 py-20 bg-valoriya-gradient">
+      <section className="px-6 py-24 bg-valoriya-gradient">
         <div className="max-w-6xl mx-auto text-center text-white">
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in"
+            className="text-5xl md:text-7xl font-bold mb-8 animate-fade-in"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            A brand new ranking experience for you
+            A brand new ranking<br />experience for you
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 animate-fade-in"
+            className="text-lg md:text-xl mb-8 max-w-4xl mx-auto opacity-90 animate-fade-in leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -206,7 +206,7 @@ export default function HomePage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-gray-600">Monthly</CardTitle>
                   <div className="mt-4">
-                    <span className="text-5xl font-bold text-valoriya-blue-600">$5.00</span>
+                    <span className="text-5xl font-bold text-valoriya-blue-600">$2.50</span>
                     <p className="text-gray-600 mt-2">per month</p>
                   </div>
                 </CardHeader>

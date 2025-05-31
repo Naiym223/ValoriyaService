@@ -28,6 +28,18 @@ export default function ModulesPage() {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
+  const downloadModule = (code: string, moduleName: string) => {
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${moduleName.replace(/\s+/g, '')}.lua`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const applicationCenterCode = `-- Valoriya Service Application Center Module
 -- Place this script in ServerScriptService
 
@@ -484,7 +496,10 @@ return ActivityTracker`;
                           </>
                         )}
                       </Button>
-                      <Button variant="valoriya">
+                      <Button 
+                        variant="valoriya"
+                        onClick={() => downloadModule(module.code, module.name)}
+                      >
                         <Download className="h-4 w-4 mr-2" />
                         Download
                       </Button>

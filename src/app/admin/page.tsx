@@ -72,7 +72,7 @@ export default function AdminPage() {
 
   const isAdmin = (email: string | null) => {
     // In a real app, this would be stored in the database
-    const adminEmails = ['admin@valoriya.service', 'naiym223@example.com'];
+    const adminEmails = ['admin@valoriya.service', 'naiymbusiness@gmail.com'];
     return email ? adminEmails.includes(email) : false;
   };
 
