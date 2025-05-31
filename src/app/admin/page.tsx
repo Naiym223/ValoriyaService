@@ -58,7 +58,7 @@ export default function AdminPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [authKeys, setAuthKeys] = useState<AuthKey[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Check if user is admin (in real app, check server-side)
